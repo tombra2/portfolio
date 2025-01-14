@@ -2,17 +2,24 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
+use App\Form\Type\Registry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {
   #[Route('/', name: 'index')]
   public function index(): Response
   {
-    return $this->render('index/index.html.twig', [
-      'controller_name' => 'IndexController',
-    ]);
-  }
+
+$form= $this->createForm(Registry::class);
+
+return $this->render("index/index.html.twig",[
+"reg_form"=>$form->createView(),
+]);          
+    
+}
 }
