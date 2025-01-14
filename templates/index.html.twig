@@ -9,7 +9,10 @@
 </div>
  </nav>
 
- <div class="container"> {{form(reg_form)}}</div>
+ <div class="container"> {{ form_start(reg_form) }}
+    {{ form_row(reg_form) }}
+{{ form_end(reg_form) }}
+</div>
 {% endblock %}
 
 
