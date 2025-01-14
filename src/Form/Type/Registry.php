@@ -21,7 +21,7 @@ class Registry extends AbstractType {
         $builder -> add("adresse", TextType::class);
         $builder -> add("plz", TextType::class);
         $builder -> add("wohnort", TextType::class);
-        $builder -> add("geburtdatum", DateType::class);
+        $builder -> add("geburtsdatum",DateType::class);
         $builder -> add("email",EmailType::class);
         $builder -> add("username", TextType::class);
         $builder -> add("password", PasswordType::class);
@@ -31,6 +31,7 @@ class Registry extends AbstractType {
 
 public function configureOptions(OptionsResolver $resolver)
 {
+
     $resolver->setDefaults([
         "data_class"=>RegistryEntity::class,
         "csrf_protection"=> true,

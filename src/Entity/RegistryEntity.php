@@ -2,24 +2,64 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+
+
+#[ORM\Entity]
 class RegistryEntity {
+
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private ?int $id;
-    private \DateTimeImmutable $createdAt;
-
+    
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"datetime_immutable",options:["default"=>"CURRENT_TIMESTAMP"])]
+    private ?\DateTimeImmutable $createdAt;
+   
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
     private string $username;
+    
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
     private string $password;
-    private string $vorname;
-    private string $nachname;
-    private string $adresse;
-    private string $wohnort;
-    private \DateTime $geburtsdatum;
-    private ?string $email;
 
-public function __construct()
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
+    private string $vorname;
+    
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
+    private string $nachname;
+
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
+    private string $adresse;
+
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"integer")]
+    private int $plz;
+
+    #[Assert\NotBlank]
+    #[ORM\Column(type:"string")]
+    private string $wohnort;
+
+    #[Assert\NotBlank]
+    #[ORM\Column(type: "datetime", nullable:true)]
+    private ?\DateTime $geburtsdatum;
+
+    #[Assert\NotBlank]
+    #[Assert\Email]
+    #[ORM\Column(type:"string")]
+    private ?string $email;
+ 
+    
+    public function __construct()
 {
-    $this->$createdAt = new DateTimeImmutable();
+    $this->createdAt = new \DateTimeImmutable();
 
 }
 
@@ -216,5 +256,25 @@ public function __construct()
         $this->email = $email;
 
         
+    }
+
+    /**
+     * Get the value of plz
+     */ 
+    public function getPlz()
+    {
+        return $this->plz;
+    }
+
+    /**
+     * Set the value of plz
+     *
+     * @return  self
+     */ 
+    public function setPlz($plz)
+    {
+        $this->plz = $plz;
+
+        return $this;
     }
 }
