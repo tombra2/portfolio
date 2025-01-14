@@ -1,29 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}brandworks.dev   {% endblock %}
+{% block title %}brandworks.dev{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark"><div class ="container">
-<a href="#" class="navbar-brand">Thomas Brandner webdev</a>
+<div class="container">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Thomas Brandner Webdev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-</div>
- </nav>
-
- <div class="container"> {{ form_start(reg_form) }}
-    {{ form_row(reg_form.vorname) }}
-    {{ form_row(reg_form.nachname) }}
-    {{ form_row(reg_form.adresse) }}
-    {{ form_row(reg_form.plz) }}
-    {{ form_row(reg_form.wohnort) }}
-    {{ form_row(reg_form.geburtsdatum) }}
-    {{ form_row(reg_form.email) }}
-    {{ form_row(reg_form.username) }}
-    {{ form_row(reg_form.password) }}
-    {{ form_row(reg_form.benutzer_anlegen) }}
-{{ form_end(reg_form) }}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">Registrierung</h2>
+            {{ form_start(reg_form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.vorname, {'attr': {'class': 'form-control'}, 'label': 'Vorname'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.nachname, {'attr': {'class': 'form-control'}, 'label': 'Nachname'}) }}
+                    </div>
+                    <div class="col-md-12">
+                        {{ form_row(reg_form.adresse, {'attr': {'class': 'form-control'}, 'label': 'Adresse'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.plz, {'attr': {'class': 'form-control'}, 'label': 'PLZ'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.wohnort, {'attr': {'class': 'form-control'}, 'label': 'Wohnort'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.geburtsdatum, {'attr': {'class': 'form-control'}, 'label': 'Geburtsdatum'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.email, {'attr': {'class': 'form-control'}, 'label': 'E-Mail'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.username, {'attr': {'class': 'form-control'}, 'label': 'Benutzername'}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(reg_form.password, {'attr': {'class': 'form-control'}, 'label': 'Passwort'}) }}
+                    </div>
+                    <div class="col-md-12">
+                        {{ form_row(reg_form.benutzer_anlegen, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                    </div>
+                </div>
+            {{ form_end(reg_form) }}
+        </div>
+    </div>
 </div>
 {% endblock %}
-
-
-
-

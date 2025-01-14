@@ -1,16 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}brandworks.dev   {% endblock %}
+{% block title %}brandworks.dev{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark"><div class ="container">
-<a href="#" class="navbar-brand">Thomas Brandner webdev</a>
+<div class="container">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Thomas Brandner Webdev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-4 mb-4">Registrierung abgeschlossen</h1>
+            <p>Herzlichen Glückwunsch! Ihre Registrierung bei brandworks.dev ist erfolgreich abgeschlossen.</p>
+            <a href="#" class="btn btn-primary mt-3">Zurück zum Dashboard</a>
+        </div>
+    </div>
 </div>
- </nav>
-
- <div>Registierung abgeschlossen</div>
 {% endblock %}
-
-
-
