@@ -34,7 +34,8 @@ public function configureOptions(OptionsResolver $resolver)
 
     $resolver->setDefaults([
         "data_class"=>RegistryEntity::class,
-        "csrf_protection"=> true
+        "csrf_protection"=> true,
+         'csrf_token_id' => 'register_form'
     ]);
 
 }
